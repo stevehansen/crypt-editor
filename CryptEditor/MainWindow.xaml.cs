@@ -100,6 +100,7 @@ namespace CryptEditor
                     return;
 
                 CurrentFile.FullName = Path.Combine(currentDir.FullName, fullName + ".enc");
+                CurrentFile.Name = fullName;
             }
 
             CurrentFile.Save(passwordBox.Password, CurrentText);

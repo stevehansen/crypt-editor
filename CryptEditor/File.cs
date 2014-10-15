@@ -13,12 +13,13 @@ namespace CryptEditor
         private const int iterations = 30000;
 
         public static readonly File Null = new File(string.Empty);
+        private string name;
 
-        event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged { add { } remove { } }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public File(FileInfo file)
         {
-            Name = file.Name;
+            Name = Path.ChangeExtension(file.Name, null);
             FullName = file.FullName;
         }
 
@@ -27,7 +28,18 @@ namespace CryptEditor
             Name = name;
         }
 
-        public string Name { get; private set; }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                name = value;
+
+                var handler = PropertyChanged;
+                if (handler != null)
+                    handler(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
 
         public string FullName { get; set; }
 
