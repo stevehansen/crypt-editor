@@ -1,0 +1,22 @@
+﻿<Window x:Class="CryptEditor.Dialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        MinWidth="300"
+        MinHeight="100"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanMinimize">
+    <StackPanel Margin="5,5,5,5">
+        <TextBlock Name="QuestionTextBox" Margin="0,0,0,10" />
+        <TextBox Name="InputTextBox" Padding="3,3,3,3" />
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="BtnOk" IsDefault="True" Content="OK" Grid.Column="0" Margin="0,0,5,0" Padding="8" Click="OkClicked" />
+            <Button Name="BtnCancel" Content="Cancel" Grid.Column="1" Margin="5,0,0,0" Padding="8" Click="CancelClicked" />
+        </Grid>
+    </StackPanel>
+</Window>
